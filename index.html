@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>my calculator</title>
+    <style>
+      body{
+        background: cyan;
+        font-family: Times New Roman;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        
+      }
+      .card{
+        background: gray;
+        border-radius: 15px;
+        padding:30px;
+        box-shadow: 0 0 15px orange;
+        width:90%;
+        max-width: 350px;
+      }
+      .but{
+        background: violet;
+        box-shadow: 0 0 5px blue;
+        cursor:pointer;
+        border-radius: 15px;
+        width:100%;
+        margin-top:10px;
+      }
+      .butg{
+        background: green;
+        box-shadow: 0 0 5px cyan;
+        border-radius: 15px;
+        cursor:pointer;
+        width:100%;
+        margin-top:10px;
+      }
+      input{
+        width:100%;
+        padding:10px;
+        margin-bottom:10px;
+        border-radius:6px;
+        border:1px solid #ccc;
+      }
+    </style>
+  </head>
+<body>
+  <div class="card">
+    <input type="text" id="nameinput" placeholder="enter your name">
+    <button class="butg" onclick="showname()">Greet me</button>
+    <p id="outputname"></p>
+    <hr>
+  <h2>Calc</h2>
+  <input type="default" id="num1" placeholder="enter the number"><br><br>
+  <input type="default" id="num2" placeholder="enter the number">
+  <br><br>
+  <button class="but" onclick="sum()">Add</button>
+  <button class="but" onclick="sub()">minus</button>
+  <button class="but" onclick="into()">multiplication</button>
+  <button class="but" onclick="div()">division</button>
+  <p id="result"></p>
+  <hr>
+  <button class="but" onclick="clickedcount()">click here</button>
+  <p id="inccount">Not clicked yet</p>
+  </div>
+</body>
+<script>
+  function showname(){
+    let name=document.getElementById("nameinput").value;
+    if (name===""){
+      document.getElementById("outputname").textContent="!!!please enter your name";
+    }else{
+    document.getElementById("outputname").textContent="Hello "+name;
+    }
+  }
+  function sum(){
+    let a=document.getElementById("num1").value;
+    let b=document.getElementById("num2").value;
+    if (a==="" || b===""){
+      document.getElementById("result").textContent="please enter both values";
+    }else{
+      let add=Number(a)+Number(b);
+      document.getElementById("result").textContent="Result : "+add;
+    }
+  }
+  
+  function sub(){
+    let a=document.getElementById("num1").value;
+    let b=document.getElementById("num2").value;
+    if (a==="" || b===""){
+      document.getElementById("result").textContent="please enter both values";
+    }else{
+      let minu=Number(a)-Number(b);
+    
+      document.getElementById("result").textContent="Result : "+minu;
+    }
+  }
+  function into(){
+    let a=document.getElementById("num1").value;
+    let b=document.getElementById("num2").value;
+    if (a==="" || b===""){
+      document.getElementById("result").textContent="please enter both values";
+    }else{
+      let mul=Number(a)*Number(b);
+    
+      document.getElementById("result").textContent="Result : "+mul;
+    }
+  }
+  function div(){
+    let a=document.getElementById("num1").value;
+    let b=document.getElementById("num2").value;
+    if (a==="" || b===""){
+      document.getElementById("result").textContent="please enter both values";
+    }else{
+      let divi=Number(a)/Number(b);
+    
+      document.getElementById("result").textContent="Result : "+divi;
+    }
+  }
+  let count=0;
+  function clickedcount(){
+    count++;
+    document.getElementById("inccount").textContent="You have clicked "+count+" times";
+  }
+</script>
+</html>
